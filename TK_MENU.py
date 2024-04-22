@@ -27,6 +27,20 @@ help_check_string = tk.StringVar()
 help_menu.add_checkbutton(label='Check', onvalue='on', offvalue='off', variable=help_check_string)
 menu.add_cascade(label='HELP', menu=help_menu)
 
+# MENU INSIDE MENU
+exercise_menu = tk.Menu(menu, tearoff=False)
+exercise_menu.add_command(label='EXERCISE TEXT 1')
+menu.add_cascade(label='EXERCISE', menu=exercise_menu)
+
+# adding a sub menu in the menu item
+exercise_sub_menu = tk.Menu(menu, tearoff=False)
+exercise_menu.add_cascade(label='MORE STUFF', menu=exercise_sub_menu)
+
+exercise_sub_menu.add_command(label='entry1')
+exercise_sub_menu.add_command(label='entry2')
+exercise_sub_menu.add_command(label='entry3')
+
+
 window.config(menu=menu)
 
 ######################################################################################
