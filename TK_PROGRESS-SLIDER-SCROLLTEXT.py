@@ -35,6 +35,37 @@ scrolled_text = scrolledtext.ScrolledText(window, width=100, height=5)
 scrolled_text.pack()
 
 
+##########################################################
+###### EXCERSISE
+##########################################################
+import tkinter as tk
+from tkinter import ttk
+
+
+# Run the window
+window = tk.Tk()
+window.title('SCROLLBAR PROGRESSBAR')
+window.geometry('600x500')
+
+# Scrollbar
+scroll_int = tk.IntVar(value=0)
+scrollbar = ttk.Scale(master=window, from_=0, to=100, length=300, orient='vertical', variable=scroll_int,
+                      command=lambda event: print(scroll_int.get()))
+scrollbar.pack()
+
+# Progressbar
+progressbar = ttk.Progressbar(master=window, length=500, variable=scroll_int)
+progressbar.start()
+progressbar.pack()
+
+label = ttk.Label(window, textvariable=scroll_int)
+label.pack()
+
+window.mainloop()
+
+
+
+
 # Run the window
 window.mainloop()
 
